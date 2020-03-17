@@ -1,0 +1,43 @@
+nano
+#!/bin/bash
+echo "Newest file:"
+ls —q -t | head -n 1
+^x
+y
+newer.sh
+ls —q -t | head -n 1
+
+nano
+#!/bin/bash
+echo “this is a TEST”
+^x
+y
+test_me.sh
+chmod +x test_me.sh
+./test_me.sh foo
+
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-10-shell-programming--time-signal.s >program24
+
+nano
+^r
+program
+
+
+#!/bin/bash
+# save as time-signal.sh
+# gives a time signal every hour when connected to cron
+time=$(date +%I)
+count=1
+while test $count -lt $time; do
+  echo -e "\a"
+  sleep 3  # sleep for three second
+  count=$[$count+1]
+done
+
+^x
+y
+program24
+y
+
+./program24
+
