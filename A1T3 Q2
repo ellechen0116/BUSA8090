@@ -1,0 +1,32 @@
+mysql -u awkologist -p
+mysql> use compbiol
+
+mysql -u awkologist -p compbiol -e 'select LastName, FirstName,Coach 
+> from Member
+> where Coach is NULL
+> ;'
+
+mysql -u awkologist -p compbiol -e 'select LastName, FirstName,JoinDate
+> from Member
+> WHERE JoinDate BETWEEN "2010-01-01 00:00:00" AND "2010-12-31 00:00:00"
+> ORDER BY JoinDate
+> ;'
+
+mysql -u awkologist -p compbiol -e '\
+> select m.FirstName, m.LastName, e.MemberID, e.Year \
+> from Member m cross join Entry e \
+> where Year = "2014" \
+> ;'
+
+mysql -u awkologist -p compbiol -e '\
+> select m.LastName, m.FirstName, m.MemberID
+> from Member m
+> where m.MemberID in (select distinct (e1.MemberID) 
+> from Entry e1, Entry e2, Entry e3 
+> where e1.MemberID = e2.MemberID 
+> and e2.MemberID = e3.MemberID 
+> and e1.Year = 2013 
+> and e2.Year = 2014 
+> and e3.Year = 2015);
+> ;'
+
