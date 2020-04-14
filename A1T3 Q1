@@ -1,0 +1,11 @@
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/expression.tab > expression.tab
+cat expression.tab
+
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/annotation.tab > annotation.tab
+cat annoatation.tab
+
+join -j 1 <(sort expression.tab) <(sort annotation.tab) | column -t | tac
+
+mysql -u awkologist -p
+use compbiol
+mysql> select metabolism, count(*) from annotation GROUP BY metabolism;
