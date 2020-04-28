@@ -1,0 +1,4 @@
+mysqlsh -u awkologist --sql --recreate-schema world_x < C:\temp\world_x-db\world_x.sql
+mysql> USE world_x;
+mysql> SHOW TABLES;
+
