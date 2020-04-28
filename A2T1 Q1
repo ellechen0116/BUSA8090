@@ -1,0 +1,8 @@
+curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/expression.tab
+awk '{ if($2 <=1000) { print }}' expression.tab | head
+
+$curl https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/annotation.tab
+awk '{ if($2="ase") { print }}' annotation.tab | head
+
+grep "Pyrimidine biosynthesis\|Purine biosynthesis" annotation.tab
+
