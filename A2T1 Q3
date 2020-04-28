@@ -1,0 +1,6 @@
+ggplot(data=covid, aes(x=Date, y=Death, group=Country)) +
+  geom_line(aes(linetype=Country, color=Country))+
+  geom_point(aes(color=Country))+
+  theme(legend.position="top")+
+  theme(axis.text.x=element_text(angle=90, hjust = 1, vjust = 0.5))
+
