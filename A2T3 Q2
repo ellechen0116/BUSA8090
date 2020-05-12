@@ -1,0 +1,23 @@
+ggplot(merged, aes(x = long, y = lat, group = group,
+                   fill = log10(Emit_CO2percap))) +
+  geom_polygon() +
+  scale_fill_gradient(low = "green",
+                      high = "red")
+
+
+data(Bali)
+my_pal <- brewer.pal(5,"Set2")
+rolecat <- Bali %v% "role"
+gplot(Bali,usearrows=FALSE,displaylabels=TRUE,
+vertex.col=my_pal[as.factor(rolecat)],
+edge.lwd=0,edge.col="grey25")
+legend("topright",legend=c("BM","CT","OA","SB",
+"TL"),col=my_pal,pch=19,pt.cex=2)
+
+my_pal <- brewer.pal(5,"Dark2")
+rolecat <- as.factor(get.vertex.attribute(Bali,"role"))
+plot(Bali,vertex.cex=rescale(deg,1,5),
+vertex.col=my_pal[rolecat])
+legend("bottomleft",legend=c("BM","CT","OA","SB","TL"),
+col=my_pal,pch=19,pt.cex=1.5,bty="n",
+title="Terrorist Role")
